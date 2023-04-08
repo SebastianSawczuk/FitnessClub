@@ -1,0 +1,25 @@
+<h1 id="tableLabel">Ticket list</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!tickets?.length"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="tickets.length">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Temp. (C)</th>
+      <th>Temp. (F)</th>
+      <th>Summary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ticket of tickets">
+      <td>{{ ticket.id }}</td>
+      <td>{{ ticket.name }}</td>
+      <td>{{ ticket.price }}</td>
+      <td>{{ ticket.actual }}</td>
+      <td>{{ ticket.date }}</td>
+    </tr>
+  </tbody>
+</table>
