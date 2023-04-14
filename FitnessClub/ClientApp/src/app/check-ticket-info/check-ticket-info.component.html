@@ -1,0 +1,13 @@
+<h1 id="tableLabel">Client tickets</h1>
+
+<p>Here you can see that selected clien has actual ticket.</p>
+
+<div class="alert alert-success" role="alert" *ngIf="isActual">
+  Client has actual ticket!
+</div>
+
+<div class="alert alert-danger" role="alert" *ngIf="!isActual">
+    Client does not have actual ticket!
+  </div>
+
+<button class="btn btn-outline-primary" [routerLink]="['/client-add']">Add new Client</button>

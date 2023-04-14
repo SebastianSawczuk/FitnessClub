@@ -1,0 +1,32 @@
+<h1 id="tableLabel">Clients list</h1>
+
+<p>Here you can see all Clients of FitnessClub.</p>
+
+<p *ngIf="!clients?.length"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="clients.length">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>E-mail</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let client of clients">
+      <td>{{ client.id }}</td>
+      <td>{{ client.firstName }}</td>
+      <td>{{ client.lastName }}</td>
+      <td>{{ client.email }}</td>
+      <td>
+        <button class="btn btn-outline-success" [routerLink]="['/client-edit']"
+          [queryParams]="{id: client.id, firstName: client.firstName, lastName: client.lastName, email: client.email}">Edit</button>
+        <button class="btn btn-outline-danger" (click)="deleteClient(client.id)">Delate</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<button class="btn btn-outline-primary" [routerLink]="['/client-add']">Add new Client</button>

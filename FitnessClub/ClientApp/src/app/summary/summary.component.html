@@ -1,0 +1,25 @@
+<h1 id="tableLabel">Summary</h1>
+
+<p>Here you can see information about client new ticket.</p>
+
+<div *ngFor="let client of clients" class="mb-3">
+    <div class="mb-3">
+        <label for="price" class="form-label- mb-3">Client info</label>
+        <input class="form-control-lg" type="text" id="price" [(ngModel)]="client.firstName + ' ' + client.lastName"
+            readonly>
+    </div>
+</div>
+
+<div *ngFor="let ticket of tickets" class="mb-3">
+    <div class="mb-3">
+        <label for="price" class="form-label mb-3">Ticket type</label>
+        <input class="form-control-lg" type="text" id="price" [(ngModel)]="ticket.name" readonly>
+        <label for="price" class="form-label mb-3">Ticket price</label>
+        <input class="form-control-lg" type="text" id="price" [(ngModel)]="ticket.price" readonly>
+    </div>
+</div>
+
+<div class="btn-group-lg" role="group" aria-label="Basic outlined example">
+    <button type="button" class="btn btn-outline-success" (click)="submitForm()">Sell</button>
+    <button type="button" class="btn btn-outline-danger" [routerLink]="['/sell-ticket']">Back</button>
+</div>

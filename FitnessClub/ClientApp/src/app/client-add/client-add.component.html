@@ -1,0 +1,19 @@
+<h1 id="tableLabel">Add Client</h1>
+
+<p>Here you can add new Client.</p>
+
+<form (submit)="submitForm()">
+  <div class="form-floating mb-3">
+    <input type="text" name="fname" class="form-control" [(ngModel)]="firstName" placeholder="Enter client first name">
+    <label for="name">First Name</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="text" name="lname" class="form-control" [(ngModel)]="lastName" placeholder="Enter client last name">
+    <label for="name">Last Name</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="email" name="email" class="form-control" [(ngModel)]="email" placeholder="Enter client e-mail">
+    <label for="name">E-mail</label>
+  </div>
+  <button type="submit" class="btn btn-primary">ADD</button>
+</form>

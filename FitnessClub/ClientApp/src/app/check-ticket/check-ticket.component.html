@@ -1,0 +1,19 @@
+<h1 id="tableLabel">Check ticket</h1>
+
+<p>Here you can check than client has actual ticket.</p>
+
+<form>
+  <div class="form-floating mb-3">
+    <input type="text" name="fname" class="form-control" [(ngModel)]="firstName" placeholder="Enter client first name">
+    <label for="name">First Name</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="text" name="lname" class="form-control" [(ngModel)]="lastName" placeholder="Enter client last name">
+    <label for="name">Last Name</label>
+  </div>
+  <button type="submit" class="btn btn-outline-primary" [routerLink]="['/check-ticket-info']" [queryParams]="{idc}">Check</button>
+  <button class="btn btn-outline-secondary" (click)="getId()">Get ID</button>
+</form>
+
+<label for="price" class="form-label mb-3">Ticket type</label>
+        <input class="form-control-lg" type="text" id="idc" [(ngModel)]="idc" readonly>

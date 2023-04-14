@@ -1,0 +1,19 @@
+<h1 id="tableLabel">Sell Ticket</h1>
+
+<p>Here you can set .</p>
+
+<label for="name" class="mb-3">Choose client</label>
+<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="selectedClient">
+    <option *ngFor="let client of clients" [value]="client.id">{{ client.firstName }} {{ client.lastName }}</option>
+</select>
+
+<label for="name" class="mb-3">Choose ticket</label>
+<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="selectedTicket">
+    <option *ngFor="let ticket of tickets" [value]="ticket.id">{{ ticket.name }}</option>
+</select>
+
+<br>
+<button class="btn btn-outline-primary" [routerLink]="['/summary']" [queryParams]="{selectedTicket, selectedClient}">Summmary</button>
+
+
+

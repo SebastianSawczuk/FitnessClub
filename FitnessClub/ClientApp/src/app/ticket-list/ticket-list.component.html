@@ -1,25 +1,30 @@
 <h1 id="tableLabel">Ticket list</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
+<p>Here you can see Tickets with are avilable for consumers.</p>
 
 <p *ngIf="!tickets?.length"><em>Loading...</em></p>
 
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="tickets.length">
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Temp. (C)</th>
-      <th>Temp. (F)</th>
-      <th>Summary</th>
+      <th>Id</th>
+      <th>Type</th>
+      <th>Peroid in months</th>
+      <th>Price</th>
+      <th>Actions</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody >
     <tr *ngFor="let ticket of tickets">
       <td>{{ ticket.id }}</td>
       <td>{{ ticket.name }}</td>
+      <td>{{ ticket.peroid }}</td>
       <td>{{ ticket.price }}</td>
-      <td>{{ ticket.actual }}</td>
-      <td>{{ ticket.date }}</td>
+      <td>
+      <button class="btn btn-outline-success" [routerLink]="['/edit-ticket']" [queryParams]="{id: ticket.id, name: ticket.name, peroid: this.ticket.peroid, price: ticket.price}">Edit</button>
+      <button class="btn btn-outline-danger" (click)="deleteTicket(ticket.id)">Delate</button></td>
     </tr>
   </tbody>
 </table>
+
+<button class="btn btn-outline-primary" [routerLink]="['/add-ticket']">Add new Ticket</button>
